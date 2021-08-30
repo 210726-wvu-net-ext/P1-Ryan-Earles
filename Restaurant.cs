@@ -8,5 +8,6 @@ namespace RestaurantReviews.ConsoleApp
 {
     class Restaurant
     {
+        public string Name { get; set; }
     }
 }

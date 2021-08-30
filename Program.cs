@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RestaurantReviews.ConsoleApp
 {
     class Program
     {
+        static List<Restaurant> restaurant = new List<Restaurant>();
         static void Main(string[] args)
         { 
             Start();
@@ -120,6 +122,10 @@ namespace RestaurantReviews.ConsoleApp
         /// </summary>
         private static void AddRestaurant()
         {
+            Console.WriteLine("Please enter the name of the Restaurant you want to add");
+            string name = Console.ReadLine();
+            Restaurant rest = new Restaurant { Name = name };
+            restaurant.Add(rest);
         }
 
         /// <summary>
@@ -151,7 +157,7 @@ namespace RestaurantReviews.ConsoleApp
         /// <returns>List of all Restaurants</returns>
         private void AllRestaurants()
         {
-
+           
         }
         /// <summary>
         /// Helper method to return all Reviews with their attached information
@@ -212,6 +218,18 @@ namespace RestaurantReviews.ConsoleApp
         /// </summary>
         private static void DisplayReviewsofRestaurants()
         {
+            Console.WriteLine();
+            if (restaurant.Count == 0)
+            {
+                Console.WriteLine("There's no restaurants available");
+            }
+            else
+            {
+                foreach (var rest in restaurant)
+                {
+                    Console.WriteLine(rest.Name);
+                }
+            }
         }
         /// <summary>
         /// Search for a restaurant by Name, Rating and Zipcode
