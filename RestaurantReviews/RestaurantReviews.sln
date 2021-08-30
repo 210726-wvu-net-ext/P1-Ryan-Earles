@@ -7,12 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.ConsoleAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.DataAccess", "RestaurantReviews.DataAccess\RestaurantReviews.DataAccess.csproj", "{66D3BD56-C6EC-4FF4-B9EC-0ED733DE8D3B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1270F05B-4535-40CE-B8B1-2340244D6910}"
-	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.Domain", "RestaurantReviews.Domain\RestaurantReviews.Domain.csproj", "{E8E1CB91-C87C-40CA-B7A2-085794656533}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantReviews.Domain", "RestaurantReviews.Domain\RestaurantReviews.Domain.csproj", "{E8E1CB91-C87C-40CA-B7A2-085794656533}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantReviews.WebApp", "RestaurantReviews.WebApp\RestaurantReviews.WebApp.csproj", "{8907A083-AEE8-42E0-9DC2-66F49C97063B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +29,10 @@ Global
 		{E8E1CB91-C87C-40CA-B7A2-085794656533}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8E1CB91-C87C-40CA-B7A2-085794656533}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8E1CB91-C87C-40CA-B7A2-085794656533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8907A083-AEE8-42E0-9DC2-66F49C97063B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8907A083-AEE8-42E0-9DC2-66F49C97063B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8907A083-AEE8-42E0-9DC2-66F49C97063B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8907A083-AEE8-42E0-9DC2-66F49C97063B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
