@@ -1,18 +1,29 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantReviews.DataAccess.Entities;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 
 namespace RestaurantReviews.ConsoleApp
 {
     class Program
     {
-        static List<Restaurant> restaurant = new List<Restaurant>();
         static void Main(string[] args)
         { 
+
             Start();
         }
 
         public static void Start()
         {
+            string ConnectionString = File.ReadAllText("C:/Desktop/rearlesdb-connection-string.txt");
+            var options = new DbContextOptionsBuilder<RearlesDBContext>()
+                    .LogTo(message => Debug.WriteLine(message))
+                    .UseSqlServer(ConnectionString)
+                    .Options;
+            using var context = new RearlesDBContext();
             bool repeat = true;
             do
             {
@@ -52,31 +63,31 @@ namespace RestaurantReviews.ConsoleApp
                         break;
 
                     case "1": //adding a new user
-                        AddUser();
+                        AddUser(context);
                         break;
 
                     case "2": //adding a new admin
-                        AddAdmin();
+                        AddAdmin(context);
                         break;
 
                     case "3": //adding a new restaurant
-                        AddRestaurant();
+                        AddRestaurant(context);
                         break;
 
                     case "4": //adding a new review
-                        AddReview();
+                        AddReview(context);
                         break;
 
                     case "5": //search user work in progress
-                        SearchUser();
+                        SearchUser(context);
                         break;
 
                     case "6": //search restaurant
-                        SearchRestaurant();
+                        SearchRestaurant(context);
                         break;
 
                     case "7":
-                        DisplayReviewsofRestaurants();
+                        DisplayReviewsofRestaurants(context);
                         break;
 
                     default:
@@ -88,7 +99,7 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// This adds a user to the database 
         /// </summary>
-        private static void AddUser()
+        private static void AddUser(RearlesDBContext context)
         {
 
 
@@ -105,13 +116,13 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// This first asks for the default admin password and then adds a user as an admin with changing the default password for them. 
         /// </summary>
-        private static void AddAdmin()
+        private static void AddAdmin(RearlesDBContext context)
         {
         }
         /// <summary>
         /// This adds a review to the database, but first checks if the Restaurant exists in the database
         /// </summary>
-        private static void AddReview()// I want to take the user information here too. Make the connection in the ReviewJoin table here. 
+        private static void AddReview(RearlesDBContext context)// I want to take the user information here too. Make the connection in the ReviewJoin table here. 
         {
         }
         private void SearchUserID(string username)
@@ -120,12 +131,13 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// This adds a Restaurant into the database
         /// </summary>
-        private static void AddRestaurant()
+        private static void AddRestaurant(RearlesDBContext context) //to do, expand with the other functionalities that i need
         {
-            Console.WriteLine("Please enter the name of the Restaurant you want to add");
-            string name = Console.ReadLine();
-            Restaurant rest = new Restaurant { Name = name };
-            restaurant.Add(rest);
+            Console.WriteLine("Please enter the name of the Restaurant you want to add"); //asks for a name
+            string name = Console.ReadLine(); //gets that name
+            var rest = new DataAccess.Entities.Restaurant { Name = name }; //sets that name into a new restaurant 
+            context.Restaurants.Add(rest); //adds the restaurant to database
+            context.SaveChanges(); //saves that database
         }
 
         /// <summary>
@@ -171,7 +183,7 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// Allows Admin to search Users
         /// </summary>
-        private static void SearchUser() //to implement
+        private static void SearchUser(RearlesDBContext context) //to implement
         {
 
         }
@@ -216,8 +228,9 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// Displays all of the reviews for a restaurant
         /// </summary>
-        private static void DisplayReviewsofRestaurants()
+        private static void DisplayReviewsofRestaurants(RearlesDBContext context)//implementation of a potential search?
         {
+            var restaurant = context.Restaurants.ToList();
             Console.WriteLine();
             if (restaurant.Count == 0)
             {
@@ -234,7 +247,7 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// Search for a restaurant by Name, Rating and Zipcode
         /// </summary>
-        private static void SearchRestaurant()
+        private static void SearchRestaurant(RearlesDBContext context)
         {
         }
         /// <summary>
