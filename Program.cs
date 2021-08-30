@@ -5,6 +5,11 @@ namespace RestaurantReviews.ConsoleApp
     class Program
     {
         static void Main(string[] args)
+        { 
+            Start();
+        }
+
+        public static void Start()
         {
             bool repeat = true;
             do
@@ -45,24 +50,31 @@ namespace RestaurantReviews.ConsoleApp
                         break;
 
                     case "1": //adding a new user
+                        AddUser();
                         break;
 
                     case "2": //adding a new admin
+                        AddAdmin();
                         break;
 
                     case "3": //adding a new restaurant
+                        AddRestaurant();
                         break;
 
                     case "4": //adding a new review
+                        AddReview();
                         break;
 
                     case "5": //search user work in progress
+                        SearchUser();
                         break;
 
                     case "6": //search restaurant
+                        SearchRestaurant();
                         break;
 
                     case "7":
+                        DisplayReviewsofRestaurants();
                         break;
 
                     default:
@@ -74,7 +86,7 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// This adds a user to the database 
         /// </summary>
-        private void AddUser()
+        private static void AddUser()
         {
 
 
@@ -91,13 +103,13 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// This first asks for the default admin password and then adds a user as an admin with changing the default password for them. 
         /// </summary>
-        private void AddAdmin()
+        private static void AddAdmin()
         {
         }
         /// <summary>
         /// This adds a review to the database, but first checks if the Restaurant exists in the database
         /// </summary>
-        private void AddReview()// I want to take the user information here too. Make the connection in the ReviewJoin table here. 
+        private static void AddReview()// I want to take the user information here too. Make the connection in the ReviewJoin table here. 
         {
         }
         private void SearchUserID(string username)
@@ -106,7 +118,7 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// This adds a Restaurant into the database
         /// </summary>
-        private void AddRestaurant()
+        private static void AddRestaurant()
         {
         }
 
@@ -153,7 +165,7 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// Allows Admin to search Users
         /// </summary>
-        private void SearchUser() //to implement
+        private static void SearchUser() //to implement
         {
 
         }
@@ -198,13 +210,13 @@ namespace RestaurantReviews.ConsoleApp
         /// <summary>
         /// Displays all of the reviews for a restaurant
         /// </summary>
-        private void DisplayReviewsofRestaurants()
+        private static void DisplayReviewsofRestaurants()
         {
         }
         /// <summary>
         /// Search for a restaurant by Name, Rating and Zipcode
         /// </summary>
-        private void SearchRestaurant()
+        private static void SearchRestaurant()
         {
         }
         /// <summary>
@@ -229,6 +241,7 @@ namespace RestaurantReviews.ConsoleApp
 
         }
     }
+    
     
 }
 
