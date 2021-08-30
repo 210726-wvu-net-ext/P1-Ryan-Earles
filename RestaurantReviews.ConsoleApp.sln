@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantReviews.ConsoleApp", "RestaurantReviews.ConsoleApp.csproj", "{03FB3DDB-AC75-42ED-804D-A0EDCA613391}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.ConsoleApp", "RestaurantReviews.ConsoleApp.csproj", "{03FB3DDB-AC75-42ED-804D-A0EDCA613391}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantReviews.DataAccess", "RestaurantReviews.DataAccess\RestaurantReviews.DataAccess.csproj", "{352C70F8-14A1-4EEE-A589-C72A38EFD884}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{03FB3DDB-AC75-42ED-804D-A0EDCA613391}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03FB3DDB-AC75-42ED-804D-A0EDCA613391}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03FB3DDB-AC75-42ED-804D-A0EDCA613391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352C70F8-14A1-4EEE-A589-C72A38EFD884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352C70F8-14A1-4EEE-A589-C72A38EFD884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352C70F8-14A1-4EEE-A589-C72A38EFD884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352C70F8-14A1-4EEE-A589-C72A38EFD884}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
