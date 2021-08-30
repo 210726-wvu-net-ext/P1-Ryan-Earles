@@ -1,4 +1,4 @@
-# project 1: store web application or restaurant reviews application
+# project 1: restaurant reviews application
 July 2021 Arlington .NET / Nick Escalona
 
 ## common requirements
