@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.ConsoleApp", "RestaurantReviews.ConsoleApp\RestaurantReviews.ConsoleApp.csproj", "{3D1483C4-4028-4132-9323-790B86A85A15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.DataAccess", "RestaurantReviews.DataAccess\RestaurantReviews.DataAccess.csproj", "{66D3BD56-C6EC-4FF4-B9EC-0ED733DE8D3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1270F05B-4535-40CE-B8B1-2340244D6910}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D1483C4-4028-4132-9323-790B86A85A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1483C4-4028-4132-9323-790B86A85A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1483C4-4028-4132-9323-790B86A85A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1483C4-4028-4132-9323-790B86A85A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D3BD56-C6EC-4FF4-B9EC-0ED733DE8D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D3BD56-C6EC-4FF4-B9EC-0ED733DE8D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D3BD56-C6EC-4FF4-B9EC-0ED733DE8D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D3BD56-C6EC-4FF4-B9EC-0ED733DE8D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D86E590-716E-4BAB-8E76-D76484D75812}
+	EndGlobalSection
+EndGlobal
