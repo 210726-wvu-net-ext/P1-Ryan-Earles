@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RestaurantReviews.DataAccess\RestaurantReviews.DataAccess.csproj" />
+    <ProjectReference Include="..\RestaurantReviews.Domain\RestaurantReviews.Domain.csproj" />
   </ItemGroup>
 
 </Project>
