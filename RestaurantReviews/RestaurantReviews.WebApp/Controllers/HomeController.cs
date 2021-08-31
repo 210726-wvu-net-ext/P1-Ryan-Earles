@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RestaurantReviews.Domain;
 using RestaurantReviews.WebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,22 @@ namespace RestaurantReviews.WebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IRepository repo)
         {
             _logger = logger;
+            _repo = repo;
         }
-
+        /// <summary>
+        /// This calls whenever we go to index on the website.
+        /// This shows us all the restaurants
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
-            return View();
+            var restaurants = _repo.AllRestaurants();
+            return View(model: restaurants);
         }
 
         public IActionResult Privacy()
