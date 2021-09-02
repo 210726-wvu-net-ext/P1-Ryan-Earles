@@ -26,6 +26,7 @@ namespace RestaurantReviews.WebApp.Controllers
         // GET: RestaurantController/Details/5
         public IActionResult Details(int id)
         {
+            // bad: should have a repo implementation to just get one note
             return View(_repo.AllRestaurants().First(x => x.Id == id));
         }
 
@@ -59,5 +60,7 @@ namespace RestaurantReviews.WebApp.Controllers
 
             return RedirectToAction("Details", new { id = restaurant.Id });
         }
+
+        //action method for edit, for
     }
 }

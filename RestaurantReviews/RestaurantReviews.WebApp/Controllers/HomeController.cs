@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using RestaurantReviews.Domain;
-using RestaurantReviews.WebApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using RestaurantReviews.Domain;
+using RestaurantReviews.WebApp.Models;
 
 namespace RestaurantReviews.WebApp.Controllers
 {
@@ -29,6 +30,10 @@ namespace RestaurantReviews.WebApp.Controllers
         {
             var restaurants = _repo.AllRestaurants();
             return View(model: restaurants);
+        }
+        public IActionResult Restaurant()
+        {
+            return View();
         }
 
         public IActionResult Privacy()

@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RestaurantReviews.DataAccess;
 using RestaurantReviews.DataAccess.Entities;
+using RestaurantReviews.Domain;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,12 +20,15 @@ namespace RestaurantReviews.ConsoleApp
 
         public static void Start()
         {
-            string ConnectionString = File.ReadAllText("C:/Desktop/rearlesdb-connection-string.txt");
+            string ConnectionString = File.ReadAllText("C:/Users/Ryan Earles/Desktop/rearlesdb-connection-string.txt");
             var options = new DbContextOptionsBuilder<RearlesDBContext>()
                     .LogTo(message => Debug.WriteLine(message))
                     .UseSqlServer(ConnectionString)
                     .Options;
-            using var context = new RearlesDBContext();
+            using var context = new RearlesDBContext(options);
+            Console.WriteLine("I got here");
+            Console.WriteLine(ConnectionString);
+            IRepository repo = new Repository(context);
             bool repeat = true;
             do
             {

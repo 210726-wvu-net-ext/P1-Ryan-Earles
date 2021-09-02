@@ -7,7 +7,7 @@ using RestaurantReviews.Domain;
 
 namespace RestaurantReviews.WebApp.Models
 {
-    public class CreatedRestaurant
+    public class CreatedRestaurant //: IValidatableObject
     {
         public string Name { get; set; }
         public int Zipcode { get; set; }

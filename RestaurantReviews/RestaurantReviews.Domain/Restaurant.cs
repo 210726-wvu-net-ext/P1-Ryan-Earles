@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RestaurantReviews.Domain
 {
-    public class Restaurant
+    public class Restaurant 
     {
         public Restaurant() { }
         public Restaurant(string name, int zipcode, decimal rating)
