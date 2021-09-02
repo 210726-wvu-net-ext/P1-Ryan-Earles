@@ -87,6 +87,14 @@ namespace NoteTakingApp.WebApp
                     pattern: "restaurantdetails/{restaurant}",
                     defaults: new { controller = "Restaurant", action = "Details" });
                 endpoints.MapControllerRoute(
+                    name: "restaurantindex",
+                    pattern: "restaurantindex/{restaurant}",
+                    defaults: new { controller = "Restaurant", action = "Index" });
+                endpoints.MapControllerRoute(
+                    name: "restaurantedit",
+                    pattern: "restaurantedit/{restaurant}",
+                    defaults: new { controller = "Restaurant", action = "Edit" });
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

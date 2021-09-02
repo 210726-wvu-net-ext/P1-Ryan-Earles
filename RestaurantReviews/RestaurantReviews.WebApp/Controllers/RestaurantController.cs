@@ -22,12 +22,46 @@ namespace RestaurantReviews.WebApp.Controllers
         {
             return View(_repo.AllRestaurants());
         }
+        [HttpPost]
+        public IActionResult Edit(Restaurant restaurant, string name, int zipcode)
+        {
+            List<Restaurant> restaurants = _repo.AllRestaurants();
+            if (restaurants.Contains(restaurant))
+            {
+                restaurant.Zipcode = zipcode;
+                restaurant.Name = name;
+                return RedirectToAction("Details", restaurant.Id);
+            }
+            else
+            {
+                return RedirectToAction("Details", restaurant.Id);
+            }
+        }
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View();
+        }
 
+        [HttpGet]
+        public IActionResult Details()
+        {
+            return View();
+        }
+
+        [HttpPost]
         // GET: RestaurantController/Details/5
         public IActionResult Details(int id)
         {
+            Restaurant rest = new Restaurant { };
+            List<Restaurant> restaurants = _repo.AllRestaurants();
+            foreach (Restaurant r in restaurants)
+            {
+                if (r.Id == id)
+                    rest = r;
+            }
             // bad: should have a repo implementation to just get one note
-            return View(_repo.AllRestaurants().First(x => x.Id == id));
+            return View(rest);
         }
 
         // GET: RestaurantController/Create
