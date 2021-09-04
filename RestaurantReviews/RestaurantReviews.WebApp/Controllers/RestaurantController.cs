@@ -32,20 +32,16 @@ namespace RestaurantReviews.WebApp.Controllers
             }
             try
             {
-                restaurant = RestaurantReturn(viewModel.Id); //should get the restaurant that already exists at the id of the viewmodel
+                _repo.EditRestaurant(viewModel.Id, viewModel);
             }
             catch (Exception e)
             {
 
                 ModelState.AddModelError(key: "Text", errorMessage: e.Message);
                 ModelState.AddModelError(key: "", errorMessage: $"{viewModel.Id} is not a valid viewmodel");
-                return View(viewModel);
+                return View();
             }
-
-            restaurant.Name = viewModel.Name;
-            restaurant.Zipcode = viewModel.Zipcode;
-            restaurant.Rating = viewModel.Rating;
-            return View("Details", restaurant);
+            return View("Details", viewModel);
         }
         [HttpGet]
         public IActionResult Edit()

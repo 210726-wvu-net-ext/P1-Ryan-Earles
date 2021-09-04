@@ -16,5 +16,6 @@ namespace RestaurantReviews.Domain
         List<ReviewJoin> AllReviewJoin();
         List<Review> AllReviews();
         List<User> AllUsers();
+        void EditRestaurant(int id, Domain.Restaurant restaurant);
     }
 }

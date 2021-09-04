@@ -101,5 +101,16 @@ namespace RestaurantReviews.DataAccess
 
             return reviewjoin;
         }
+        public void EditRestaurant(int id, Domain.Restaurant restaurant)
+        {
+            Entities.Restaurant foundRestaurant = _context.Restaurants.FirstOrDefault(
+                foundRestaurant => foundRestaurant.Id == id);
+            foundRestaurant.Rating = restaurant.Rating;
+            foundRestaurant.Zipcode = restaurant.Zipcode;
+            foundRestaurant.Name = restaurant.Name;
+            _context.SaveChanges();
+
+        }
+        
     }
 }
