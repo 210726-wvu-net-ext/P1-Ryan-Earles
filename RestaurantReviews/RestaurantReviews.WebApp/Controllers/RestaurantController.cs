@@ -23,45 +23,70 @@ namespace RestaurantReviews.WebApp.Controllers
             return View(_repo.AllRestaurants());
         }
         [HttpPost]
-        public IActionResult Edit(Restaurant restaurant, string name, int zipcode)
+        public IActionResult Edit(Restaurant viewModel)
         {
-            List<Restaurant> restaurants = _repo.AllRestaurants();
-            if (restaurants.Contains(restaurant))
+            var restaurant =  new Restaurant { };
+            if (!ModelState.IsValid)
             {
-                restaurant.Zipcode = zipcode;
-                restaurant.Name = name;
-                return RedirectToAction("Details", restaurant.Id);
+                return View(viewModel);
             }
-            else
+            try
             {
-                return RedirectToAction("Details", restaurant.Id);
+                restaurant = RestaurantReturn(viewModel.Id); //should get the restaurant that already exists at the id of the viewmodel
             }
+            catch (Exception e)
+            {
+
+                ModelState.AddModelError(key: "Text", errorMessage: e.Message);
+                ModelState.AddModelError(key: "", errorMessage: $"{viewModel.Id} is not a valid viewmodel");
+                return View(viewModel);
+            }
+
+            restaurant.Name = viewModel.Name;
+            restaurant.Zipcode = viewModel.Zipcode;
+            restaurant.Rating = viewModel.Rating;
+            return View("Details", restaurant);
         }
         [HttpGet]
         public IActionResult Edit()
         {
             return View();
         }
-
-        [HttpGet]
-        public IActionResult Details()
+        public Restaurant RestaurantReturn(int id)
         {
-            return View();
-        }
-
-        [HttpPost]
-        // GET: RestaurantController/Details/5
-        public IActionResult Details(int id)
-        {
-            Restaurant rest = new Restaurant { };
             List<Restaurant> restaurants = _repo.AllRestaurants();
             foreach (Restaurant r in restaurants)
             {
                 if (r.Id == id)
-                    rest = r;
+                {
+                    return r;
+                }
+            }
+            throw new Exception("This restaurant does not exist.");
+
+        }
+ 
+        // GET: RestaurantController/Details/5
+        public IActionResult Details(Restaurant restaurant)
+        {
+            List<Restaurant> restaurants = _repo.AllRestaurants();
+            foreach (Restaurant r in restaurants)
+            {
+                if (r.Id == restaurant.Id)
+                {
+                    r.Name = restaurant.Name;
+                    r.Rating = restaurant.Rating;
+                    r.Zipcode = restaurant.Zipcode;
+                    Console.WriteLine($"Id is {r.Id}");
+                    Console.WriteLine($"Name is {r.Name}");
+                    Console.WriteLine($"Rating is {r.Rating}");
+                    Console.WriteLine($" Zipcode is {r.Zipcode}");
+                    return View(restaurant);
+
+                }
             }
             // bad: should have a repo implementation to just get one note
-            return View(rest);
+            return View();
         }
 
         // GET: RestaurantController/Create
@@ -80,7 +105,7 @@ namespace RestaurantReviews.WebApp.Controllers
             {
                 return View(viewModel);
             }
-            var restaurant = new Restaurant { Name = viewModel.Name, Zipcode = viewModel.Zipcode, Rating = viewModel.Rating };
+            var restaurant = new Restaurant { Name = viewModel.Name, Id = viewModel.Id, Zipcode = viewModel.Zipcode, Rating = viewModel.Rating };
             try
             {
                 _repo.AddRestaurant(restaurant);
