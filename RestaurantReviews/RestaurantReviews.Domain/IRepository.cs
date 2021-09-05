@@ -17,5 +17,7 @@ namespace RestaurantReviews.Domain
         List<Review> AllReviews();
         List<User> AllUsers();
         void EditRestaurant(int id, Domain.Restaurant restaurant);
+        void EditUser(int id, Domain.User user);
+        void EditReview(int id, Domain.Review review);
     }
 }

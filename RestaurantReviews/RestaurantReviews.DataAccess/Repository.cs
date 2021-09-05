@@ -111,6 +111,27 @@ namespace RestaurantReviews.DataAccess
             _context.SaveChanges();
 
         }
-        
+        public void EditReview(int id, Domain.Review review)
+        {
+            Entities.Review foundReview = _context.Reviews.FirstOrDefault(
+                foundReview => foundReview.Id == id);
+            foundReview.Title = review.Title;
+            foundReview.Body = review.Body;
+            foundReview.Rating = review.Rating;
+            _context.SaveChanges();
+
+        }
+        public void EditUser(int id, Domain.User user)
+        {
+            Entities.User foundUser = _context.Users.FirstOrDefault(
+                foundUser => foundUser.Id == id);
+            foundUser.Name = user.Name;
+            foundUser.Username = user.Username;
+            foundUser.Password = user.Password;
+            foundUser.IsAdmin = user.isAdmin;
+            _context.SaveChanges();
+
+        }
+
     }
 }
