@@ -132,6 +132,13 @@ namespace RestaurantReviews.DataAccess
             _context.SaveChanges();
 
         }
+        //public Entities.Restaurant FindRestaurant(string name)
+        //{
+
+        //    Entities.Restaurant foundRestaurant = _context.Restaurants.FirstOrDefault(
+        //        foundRestaurant => foundRestaurant.Name == name);
+        //    return foundRestaurant;
+        //}
 
     }
 }

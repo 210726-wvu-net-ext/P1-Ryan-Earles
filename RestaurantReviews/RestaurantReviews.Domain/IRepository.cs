@@ -19,5 +19,6 @@ namespace RestaurantReviews.Domain
         void EditRestaurant(int id, Domain.Restaurant restaurant);
         void EditUser(int id, Domain.User user);
         void EditReview(int id, Domain.Review review);
+        //Restaurant FindRestaurant(string name);
     }
 }
