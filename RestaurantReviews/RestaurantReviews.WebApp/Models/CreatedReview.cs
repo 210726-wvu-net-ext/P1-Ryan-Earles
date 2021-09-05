@@ -9,6 +9,7 @@ namespace RestaurantReviews.WebApp.Models
 {
     public class CreatedReview
     {
+        public int Id { get; }
         public string Title { get; set; }
         public string Body { get; set; }
         public decimal Rating { get; set; }
