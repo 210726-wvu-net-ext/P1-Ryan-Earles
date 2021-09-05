@@ -22,11 +22,59 @@ namespace RestaurantReviews.WebApp.Controllers
         {
             return View(_repo.AllUsers());
         }
+        [HttpPost]
+        public IActionResult Edit(User viewModel)
+        {
+            var restaurant = new Restaurant { };
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+            try
+            {
+                _repo.EditUser(viewModel.Id, viewModel);
+            }
+            catch (Exception e)
+            {
+
+                ModelState.AddModelError(key: "Text", errorMessage: e.Message);
+                ModelState.AddModelError(key: "", errorMessage: $"{viewModel.Id} is not a valid viewmodel");
+                return View();
+            }
+            return View("Details", viewModel);
+        }
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View();
+        }
+        public User UserReturn(int id)
+        {
+            List<User> users = _repo.AllUsers();
+            foreach (User r in users)
+            {
+                if (r.Id == id)
+                {
+                    return r;
+                }
+            }
+            throw new Exception("This user does not exist.");
+
+        }
 
         // GET: RestaurantController/Details/5
-        public IActionResult Details(int id)
+        public IActionResult Details(User user)
         {
-            return View(_repo.AllUsers().First(x => x.Id == id));
+            List<User> users = _repo.AllUsers();
+            foreach (User r in users)
+            {
+                if (r.Id == user.Id)
+                {
+                    return View(user);
+                }
+            }
+            // bad: should have a repo implementation to just get one note
+            return View();
         }
 
         // GET: RestaurantController/Create
@@ -45,7 +93,7 @@ namespace RestaurantReviews.WebApp.Controllers
             {
                 return View(viewModel);
             }
-            var user = new User { Name = viewModel.Name, Username = viewModel.Username, Password = viewModel.Password, isAdmin = viewModel.isAdmin };
+            var user = new User { Name = viewModel.Name, Id = viewModel.Id, Password = viewModel.Password, isAdmin = viewModel.isAdmin };
             try
             {
                 _repo.AddUser(user);
@@ -59,5 +107,7 @@ namespace RestaurantReviews.WebApp.Controllers
 
             return RedirectToAction("Details", new { id = user.Id });
         }
+
+        //action method for edit, for
     }
 }
