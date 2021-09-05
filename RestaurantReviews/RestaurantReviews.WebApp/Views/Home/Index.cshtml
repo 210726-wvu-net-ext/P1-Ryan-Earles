@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<RestaurantReviews.Domain.Restaurant>
 
 @{
-  ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
@@ -9,8 +9,7 @@
 </div>
 
 
-<div><a asp-action="Restaurant" >Restaurants</a></div>
-<div><a asp-action="Index" asp-route-texttoprint="hello">link 2</a></div>
+
 
 @* every time you access something in tempdata using the indexing operator [],
     that key-value pair is marked for being deleted at the end of this request. *@
@@ -19,15 +18,9 @@
 <table>
     <thead>
         <tr>
-            <th>Restaurant text</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var restaurant in Model)
-    {
-        <tr>
-            <td>@restaurant.Name</td>
-        </tr>
-    }
+       
     </tbody>
 </table>

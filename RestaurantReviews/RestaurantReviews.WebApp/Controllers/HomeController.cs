@@ -28,8 +28,8 @@ namespace RestaurantReviews.WebApp.Controllers
         /// <returns></returns>
         public IActionResult Index()
         {
-            var restaurants = _repo.AllRestaurants();
-            return View(model: restaurants);
+            
+            return View();
         }
         public IActionResult Restaurant()
         {
