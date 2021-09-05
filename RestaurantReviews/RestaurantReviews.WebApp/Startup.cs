@@ -107,6 +107,18 @@ namespace NoteTakingApp.WebApp
                     pattern: "reviewedit/{review}",
                     defaults: new { controller = "Review", action = "Edit" });
                 endpoints.MapControllerRoute(
+                   name: "userdetails",
+                   pattern: "userdetails/{user}",
+                   defaults: new { controller = "User", action = "Details" });
+                endpoints.MapControllerRoute(
+                    name: "userindex",
+                    pattern: "userindex/{user}",
+                    defaults: new { controller = "User", action = "Index" });
+                endpoints.MapControllerRoute(
+                    name: "useredit",
+                    pattern: "useredit/{user}",
+                    defaults: new { controller = "User", action = "Edit" });
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
