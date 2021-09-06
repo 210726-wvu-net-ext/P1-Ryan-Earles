@@ -101,35 +101,69 @@ namespace RestaurantReviews.DataAccess
 
             return reviewjoin;
         }
-        public void EditRestaurant(int id, Domain.Restaurant restaurant)
+        public void EditRestaurant(int id, Domain.Restaurant restaurant, bool check)
         {
-            Entities.Restaurant foundRestaurant = _context.Restaurants.FirstOrDefault(
+            if (check == true)
+            {
+                Entities.Restaurant foundRestaurant = _context.Restaurants.FirstOrDefault(
                 foundRestaurant => foundRestaurant.Id == id);
-            foundRestaurant.Rating = restaurant.Rating;
-            foundRestaurant.Zipcode = restaurant.Zipcode;
-            foundRestaurant.Name = restaurant.Name;
-            _context.SaveChanges();
+                foundRestaurant.Rating = restaurant.Rating;
+                foundRestaurant.Zipcode = restaurant.Zipcode;
+                foundRestaurant.Name = restaurant.Name;
+                _context.SaveChanges();
+
+            }
+            else
+            {
+                Entities.Restaurant foundRestaurant = _context.Restaurants.FirstOrDefault(
+                foundRestaurant => foundRestaurant.Id == id);
+                _context.Restaurants.Remove(foundRestaurant);
+                _context.SaveChanges();
+            }
+            
 
         }
-        public void EditReview(int id, Domain.Review review)
+        public void EditReview(int id, Domain.Review review, bool check)
         {
-            Entities.Review foundReview = _context.Reviews.FirstOrDefault(
+            if (check == true)
+            {
+                Entities.Review foundReview = _context.Reviews.FirstOrDefault(
                 foundReview => foundReview.Id == id);
-            foundReview.Title = review.Title;
-            foundReview.Body = review.Body;
-            foundReview.Rating = review.Rating;
-            _context.SaveChanges();
+                foundReview.Title = review.Title;
+                foundReview.Body = review.Body;
+                foundReview.Rating = review.Rating;
+                _context.SaveChanges();
+            }
+            else
+            {
+                Entities.Review foundReview = _context.Reviews.FirstOrDefault(
+                foundReview => foundReview.Id == id);
+                _context.Reviews.Remove(foundReview);
+                _context.SaveChanges();
+            }
+            
 
         }
-        public void EditUser(int id, Domain.User user)
+        public void EditUser(int id, Domain.User user, bool check)
         {
-            Entities.User foundUser = _context.Users.FirstOrDefault(
+            if (check == true)
+            {
+                Entities.User foundUser = _context.Users.FirstOrDefault(
                 foundUser => foundUser.Id == id);
-            foundUser.Name = user.Name;
-            foundUser.Username = user.Username;
-            foundUser.Password = user.Password;
-            foundUser.IsAdmin = user.isAdmin;
-            _context.SaveChanges();
+                foundUser.Name = user.Name;
+                foundUser.Username = user.Username;
+                foundUser.Password = user.Password;
+                foundUser.IsAdmin = user.isAdmin;
+                _context.SaveChanges();
+
+            }
+            else
+            {
+                Entities.User foundUser = _context.Users.FirstOrDefault(
+                foundUser => foundUser.Id == id);
+                _context.Users.Remove(foundUser);
+                _context.SaveChanges();
+            }
 
         }
         //public Entities.Restaurant FindRestaurant(string name)

@@ -16,9 +16,9 @@ namespace RestaurantReviews.Domain
         List<ReviewJoin> AllReviewJoin();
         List<Review> AllReviews();
         List<User> AllUsers();
-        void EditRestaurant(int id, Domain.Restaurant restaurant);
-        void EditUser(int id, Domain.User user);
-        void EditReview(int id, Domain.Review review);
+        void EditRestaurant(int id, Domain.Restaurant restaurant, bool check);
+        void EditUser(int id, Domain.User user, bool check);
+        void EditReview(int id, Domain.Review review, bool check);
         //Restaurant FindRestaurant(string name);
     }
 }

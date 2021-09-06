@@ -32,7 +32,7 @@ namespace RestaurantReviews.WebApp.Controllers
             }
             try
             {
-                _repo.EditRestaurant(viewModel.Id, viewModel);
+                _repo.EditRestaurant(viewModel.Id, viewModel, true);
             }
             catch (Exception e)
             {
