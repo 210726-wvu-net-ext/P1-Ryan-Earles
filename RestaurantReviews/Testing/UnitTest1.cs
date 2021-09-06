@@ -1,9 +1,12 @@
 using NUnit.Framework;
+using RestaurantReviews.Domain;
 
 namespace Testing
 {
     public class Tests
     {
+        private object exception;
+
         [SetUp]
         public void Setup()
         {
@@ -14,8 +17,10 @@ namespace Testing
         public void Test1()
         {
             //this is the test
-            
-            Assert.Pass();
+           
+            var restaurant = new Restaurant { Name = "Whacking", Rating = 5, Zipcode = 80301 };
+            exception = null;
+            Assert.AreNotSame(restaurant, exception);
         }
     }
 }
