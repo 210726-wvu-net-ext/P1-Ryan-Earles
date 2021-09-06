@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.DataAcces
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.Domain", "RestaurantReviews.Domain\RestaurantReviews.Domain.csproj", "{E8E1CB91-C87C-40CA-B7A2-085794656533}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantReviews.WebApp", "RestaurantReviews.WebApp\RestaurantReviews.WebApp.csproj", "{8907A083-AEE8-42E0-9DC2-66F49C97063B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReviews.WebApp", "RestaurantReviews.WebApp\RestaurantReviews.WebApp.csproj", "{8907A083-AEE8-42E0-9DC2-66F49C97063B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{031870A4-5446-4C62-ABCD-59083A6C3671}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8907A083-AEE8-42E0-9DC2-66F49C97063B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8907A083-AEE8-42E0-9DC2-66F49C97063B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8907A083-AEE8-42E0-9DC2-66F49C97063B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031870A4-5446-4C62-ABCD-59083A6C3671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031870A4-5446-4C62-ABCD-59083A6C3671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031870A4-5446-4C62-ABCD-59083A6C3671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031870A4-5446-4C62-ABCD-59083A6C3671}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
