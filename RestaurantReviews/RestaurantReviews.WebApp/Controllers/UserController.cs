@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantReviews.Domain;
 using RestaurantReviews.WebApp.Models;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace RestaurantReviews.WebApp.Controllers
             try
             {
                 _repo.EditUser(viewModel.Id, viewModel, true);
+                Log.Debug("User has been edited! " + viewModel.Name);
             }
             catch (Exception e)
             {
@@ -72,6 +74,7 @@ namespace RestaurantReviews.WebApp.Controllers
             try
             {
                 _repo.EditUser(viewModel.Id, viewModel, false);
+                Log.Debug("User has been deleted! " + viewModel.Name);
             }
             catch (Exception e)
             {
@@ -118,6 +121,7 @@ namespace RestaurantReviews.WebApp.Controllers
             try
             {
                 _repo.AddUser(user);
+                Log.Debug("User has been created! " + viewModel.Name);
             }
             catch (InvalidOperationException e)
             {

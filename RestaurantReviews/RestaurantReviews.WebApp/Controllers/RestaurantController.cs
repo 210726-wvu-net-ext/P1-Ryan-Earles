@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantReviews.Domain;
 using RestaurantReviews.WebApp.Models;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace RestaurantReviews.WebApp.Controllers
             try
             {
                 _repo.EditRestaurant(viewModel.Id, viewModel, true);
+                Log.Debug("Restaurant has been edited! " + viewModel.Name);
             }
             catch (Exception e)
             {
@@ -57,6 +59,7 @@ namespace RestaurantReviews.WebApp.Controllers
             try
             {
                 _repo.EditRestaurant(viewModel.Id, viewModel, false);
+                Log.Debug("Restaurant has been deleted! " + viewModel.Name);
             }
             catch (Exception e)
             {
@@ -124,6 +127,7 @@ namespace RestaurantReviews.WebApp.Controllers
             try
             {
                 _repo.AddRestaurant(restaurant);
+                Log.Debug("Restaurant has been added! " + viewModel.Name);
             }
             catch (InvalidOperationException e)
             {
