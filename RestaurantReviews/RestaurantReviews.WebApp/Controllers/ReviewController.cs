@@ -44,6 +44,27 @@ namespace RestaurantReviews.WebApp.Controllers
             return View("Details", viewModel);
         }
         [HttpGet]
+        [HttpPost]
+        public IActionResult Delete(Review viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+            try
+            {
+                _repo.EditReview(viewModel.Id, viewModel, false);
+            }
+            catch (Exception e)
+            {
+
+                ModelState.AddModelError(key: "Text", errorMessage: e.Message);
+                ModelState.AddModelError(key: "", errorMessage: $"{viewModel.Id} is not a valid viewmodel");
+                return View();
+            }
+            return View("Details", viewModel);
+        }
+        [HttpGet]
         public IActionResult Edit()
         {
             return View();

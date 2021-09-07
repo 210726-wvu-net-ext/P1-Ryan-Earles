@@ -95,6 +95,10 @@ namespace NoteTakingApp.WebApp
                     pattern: "restaurantedit/{restaurant}",
                     defaults: new { controller = "Restaurant", action = "Edit" });
                 endpoints.MapControllerRoute(
+                    name: "restaurantdelete",
+                    pattern: "restaurantdelete/{restaurant}",
+                    defaults: new { controller = "Restaurant", action = "Delete" });
+                endpoints.MapControllerRoute(
                     name: "reviewdetails",
                     pattern: "reviewdetails/{review}",
                     defaults: new { controller = "Review", action = "Details" });
@@ -107,6 +111,10 @@ namespace NoteTakingApp.WebApp
                     pattern: "reviewedit/{review}",
                     defaults: new { controller = "Review", action = "Edit" });
                 endpoints.MapControllerRoute(
+                    name: "reviewdelete",
+                    pattern: "reviewdelete/{review}",
+                    defaults: new { controller = "Review", action = "Delete" });
+                endpoints.MapControllerRoute(
                    name: "userdetails",
                    pattern: "userdetails/{user}",
                    defaults: new { controller = "User", action = "Details" });
@@ -118,6 +126,10 @@ namespace NoteTakingApp.WebApp
                     name: "useredit",
                     pattern: "useredit/{user}",
                     defaults: new { controller = "User", action = "Edit" });
+                endpoints.MapControllerRoute(
+                    name: "userdelete",
+                    pattern: "userdelete/{user}",
+                    defaults: new { controller = "User", action = "Delete" });
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -61,9 +61,30 @@ namespace RestaurantReviews.WebApp.Controllers
             throw new Exception("This user does not exist.");
 
         }
+        [HttpGet]
+        [HttpPost]
+        public IActionResult Delete(User viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+            try
+            {
+                _repo.EditUser(viewModel.Id, viewModel, false);
+            }
+            catch (Exception e)
+            {
+
+                ModelState.AddModelError(key: "Text", errorMessage: e.Message);
+                ModelState.AddModelError(key: "", errorMessage: $"{viewModel.Id} is not a valid viewmodel");
+                return View();
+            }
+            return View("Details", viewModel);
+        }
 
         // GET: RestaurantController/Details/5
-        public IActionResult Details(User user)
+            public IActionResult Details(User user)
         {
             List<User> users = _repo.AllUsers();
             foreach (User r in users)
