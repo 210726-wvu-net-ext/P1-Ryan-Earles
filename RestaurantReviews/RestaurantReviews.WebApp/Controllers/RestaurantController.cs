@@ -52,6 +52,7 @@ namespace RestaurantReviews.WebApp.Controllers
         }
         public IActionResult Delete(Restaurant viewModel)
         {
+            Restaurant restaurant = viewModel;
             if (!ModelState.IsValid)
             {
                 return View(viewModel);
@@ -68,7 +69,7 @@ namespace RestaurantReviews.WebApp.Controllers
                 ModelState.AddModelError(key: "", errorMessage: $"{viewModel.Id} is not a valid viewmodel");
                 return View();
             }
-            return View("Details", viewModel);
+            return View("Details", restaurant);
         }
         public Restaurant RestaurantReturn(int id)
         {
