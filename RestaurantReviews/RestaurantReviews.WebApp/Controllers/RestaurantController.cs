@@ -118,8 +118,9 @@ namespace RestaurantReviews.WebApp.Controllers
         // POST: RestaurantController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CreatedRestaurant viewModel)
+        public IActionResult Create(Restaurant viewModel)
         {
+            Restaurant voew = viewModel;
             if (!ModelState.IsValid)
             {
                 return View(viewModel);
@@ -137,7 +138,7 @@ namespace RestaurantReviews.WebApp.Controllers
                 return View(viewModel);
             }
 
-            return RedirectToAction("Details", new { id = restaurant.Id });
+            return RedirectToAction("Index");
         }
 
         //action method for edit, for

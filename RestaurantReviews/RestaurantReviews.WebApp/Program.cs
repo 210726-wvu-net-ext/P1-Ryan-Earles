@@ -18,7 +18,7 @@ namespace RestaurantReviews.WebApp
         {
             Log.Logger = new LoggerConfiguration()
                             .MinimumLevel.Debug()
-                            .WriteTo.File("../logs/restaurantlogs.txt", rollingInterval: RollingInterval.Day)
+                            .WriteTo.File("./logs/restaurantlogs.txt", rollingInterval: RollingInterval.Day)
                             .CreateLogger();
             CreateHostBuilder(args).Build().Run();
         }

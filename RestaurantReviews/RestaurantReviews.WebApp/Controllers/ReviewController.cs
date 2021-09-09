@@ -135,7 +135,7 @@ namespace RestaurantReviews.WebApp.Controllers
                 return View(viewModel);
             }
 
-            return RedirectToAction("Details", new { id = review.Id });
+            return RedirectToAction("Index");
         }
     }
 }

@@ -88,20 +88,21 @@ namespace RestaurantReviews.WebApp.Controllers
         }
 
         // GET: RestaurantController/Details/5
-            public IActionResult Details(User user)
+        public IActionResult Details(User user)
         {
             List<User> users = _repo.AllUsers();
             foreach (User r in users)
             {
                 if (r.Id == user.Id)
                 {
+                  
                     return View(user);
+
                 }
             }
             // bad: should have a repo implementation to just get one note
             return View();
         }
-
         // GET: RestaurantController/Create
         [HttpGet]
         public IActionResult Create()
@@ -131,7 +132,7 @@ namespace RestaurantReviews.WebApp.Controllers
                 return View(viewModel);
             }
 
-            return RedirectToAction("Details", new { id = user.Id });
+            return RedirectToAction("Index");
         }
 
         //action method for edit, for
